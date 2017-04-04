@@ -10,7 +10,7 @@ def read(fname):
 
 setup(
     name = "pulsecon",
-    version = "0.0.1",
+    version = "0.1.1",
     author = "Leon Bentrup",
     author_email = "andrewjcarter@gmail.com",
     description = ("Control pulseaudio from redis pubsub"),

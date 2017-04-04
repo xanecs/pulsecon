@@ -67,5 +67,8 @@ class Pulsecon(object):
                 except KeyboardInterrupt:
                     break
 
+        vol = float(self.r.get(self.redis_channel + ':volume'))
+        self.set_volume(vol)
+
 if __name__ == '__main__':
     Pulsecon()
