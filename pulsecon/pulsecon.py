@@ -12,7 +12,7 @@ class Pulsecon(object):
         if newstate != self.playstate:
             self.r.publish(self.redis_channel + ':playing', json.dumps(newstate))
             for k in newstate:
-                self.r.set(self.redis_channel + ':' + k, 'true' if newstate[k] else 'false')
+                self.r.set(self.redis_channel + ':playing:' + k, 'true' if newstate[k] else 'false')
             for k in self.playstate:
                 if not (k in newstate):
                     self.r.set(self.redis_channel + ':playing:' + k, 'false')
