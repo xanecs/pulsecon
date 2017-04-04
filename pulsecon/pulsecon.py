@@ -70,5 +70,8 @@ class Pulsecon(object):
         vol = float(self.r.get(self.redis_channel + ':volume'))
         self.set_volume(vol)
 
-if __name__ == '__main__':
+def init():
     Pulsecon()
+
+if __name__ == '__main__':
+    init()
