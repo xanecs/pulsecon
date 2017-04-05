@@ -8,7 +8,8 @@ class Pulsecon(object):
         inputs = self.pulse.sink_input_list()
         newstate = {}
         for input in inputs:
-            newstate[input.proplist['application.name']] = input.__dict__['buffer_usec'] > 0
+            label = input.proplist['application.name'] if 'application.name' in input.proplist else input.name
+            newstate[label] = input.__dict__['buffer_usec'] > 0
         if newstate != self.playstate:
             self.r.publish(self.redis_channel + ':playing', json.dumps(newstate))
             for k in newstate:
